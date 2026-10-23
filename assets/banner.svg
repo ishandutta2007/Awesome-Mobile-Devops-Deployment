@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="auto">
+  <defs>
+    <!-- Background Linear Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080C14" />
+      <stop offset="50%" stop-color="#0D1527" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="cyanPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#6366F1" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="pipeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="33%" stop-color="#3B82F6" />
+      <stop offset="66%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="0.7" opacity="0.6" />
+      <circle cx="40" cy="40" r="1" fill="#38BDF8" opacity="0.3" />
+    </pattern>
+
+    <!-- Glow Filter -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .title-text {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .sub-text {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+    }
+    .badge-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    @keyframes pulseOrb {
+      0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.45; }
+      50% { transform: scale(1.15) translate(15px, -10px); opacity: 0.75; }
+    }
+    @keyframes dashCycle {
+      to { stroke-dashoffset: -120; }
+    }
+    @keyframes floatNode {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .pulsing-orb-1 {
+      animation: pulseOrb 7s ease-in-out infinite;
+      transform-origin: 200px 80px;
+    }
+    .pulsing-orb-2 {
+      animation: pulseOrb 9s ease-in-out infinite reverse;
+      transform-origin: 1000px 280px;
+    }
+    .pipeline-line {
+      stroke-dasharray: 8 12;
+      animation: dashCycle 4s linear infinite;
+    }
+    .floating-card {
+      animation: floatNode 5s ease-in-out infinite;
+    }
+    .floating-card-alt {
+      animation: floatNode 6s ease-in-out infinite reverse;
+    }
+  </style>
+
+  <!-- Deep Background -->
+  <rect width="1200" height="360" fill="url(#bgGrad)" />
+  <rect width="1200" height="360" fill="url(#grid)" />
+
+  <!-- Dynamic Ambient Glow Spheres (Background Layer) -->
+  <g opacity="0.6">
+    <circle class="pulsing-orb-1" cx="180" cy="90" r="140" fill="#38BDF8" opacity="0.18" filter="url(#softGlow)" />
+    <circle class="pulsing-orb-2" cx="1020" cy="270" r="160" fill="#8B5CF6" opacity="0.22" filter="url(#softGlow)" />
+    <circle cx="600" cy="30" r="100" fill="#06B6D4" opacity="0.12" filter="url(#softGlow)" />
+  </g>
+
+  <!-- Animated Pipeline Circuit Track (Background Layer - Under Text) -->
+  <g opacity="0.45">
+    <path class="pipeline-line" d="M 80,45 L 300,45 L 380,105 L 820,105 L 900,45 L 1120,45" fill="none" stroke="url(#pipeGlow)" stroke-width="2" />
+    <path class="pipeline-line" d="M 80,315 L 280,315 L 360,255 L 840,255 L 920,315 L 1120,315" fill="none" stroke="url(#pipeGlow)" stroke-width="2" />
+  </g>
+
+  <!-- Side Floating Graphic Badges (Left Side - Build & Signing) -->
+  <g class="floating-card" opacity="0.85">
+    <rect x="50" y="110" width="135" height="42" rx="8" fill="#0F172A" stroke="#0284C7" stroke-width="1.2" />
+    <circle cx="70" cy="131" r="5" fill="#38BDF8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <text x="84" y="136" fill="#E2E8F0" class="badge-text">⚡ Fastlane</text>
+
+    <rect x="75" y="170" width="145" height="42" rx="8" fill="#0F172A" stroke="#8B5CF6" stroke-width="1.2" />
+    <circle cx="95" cy="191" r="5" fill="#A855F7">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <text x="109" y="196" fill="#E2E8F0" class="badge-text">🔐 Code Signing</text>
+  </g>
+
+  <!-- Side Floating Graphic Badges (Right Side - Testing & Distribution) -->
+  <g class="floating-card-alt" opacity="0.85">
+    <rect x="1005" y="110" width="145" height="42" rx="8" fill="#0F172A" stroke="#10B981" stroke-width="1.2" />
+    <circle cx="1025" cy="131" r="5" fill="#10B981">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" repeatCount="indefinite" />
+    </circle>
+    <text x="1039" y="136" fill="#E2E8F0" class="badge-text">📦 Distribution</text>
+
+    <rect x="980" y="170" width="155" height="42" rx="8" fill="#0F172A" stroke="#EC4899" stroke-width="1.2" />
+    <circle cx="1000" cy="191" r="5" fill="#F43F5E">
+      <animate attributeName="opacity" values="1;0.4;1" dur="2.8s" repeatCount="indefinite" />
+    </circle>
+    <text x="1014" y="196" fill="#E2E8F0" class="badge-text">📱 Device Farms</text>
+  </g>
+
+  <!-- Center Content Container (Foreground Layer - Clear, Prominent & Unobscured) -->
+  <g id="foreground-content">
+    <!-- Supercategory Tag -->
+    <g transform="translate(485, 48)">
+      <rect x="0" y="0" width="230" height="28" rx="14" fill="#1E293B" stroke="#38BDF8" stroke-width="1" opacity="0.9" />
+      <circle cx="16" cy="14" r="4" fill="#00F0FF" />
+      <text x="30" y="19" fill="#38BDF8" class="badge-text" font-size="11.5">MOBILE DEVOPS ECOSYSTEM</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="600" y="128" text-anchor="middle" class="title-text" font-size="44" fill="#FFFFFF" filter="url(#neonGlow)">
+      Awesome Mobile DevOps
+    </text>
+    <text x="600" y="174" text-anchor="middle" class="title-text" font-size="36" fill="url(#cyanPurple)">
+      &amp; Deployment
+    </text>
+
+    <!-- Subtitle -->
+    <text x="600" y="218" text-anchor="middle" class="sub-text" font-size="16.5" fill="#94A3B8">
+      Curated Platforms &amp; Open-Source Projects for CI/CD, Automated Code Signing &amp; Beta Distribution
+    </text>
+
+    <!-- Core Pillars Row (Pills in Foreground) -->
+    <g transform="translate(235, 252)">
+      <!-- Pill 1: CI/CD Automation -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="160" height="34" rx="17" fill="#0F172A" stroke="#38BDF8" stroke-width="1.2" />
+        <text x="80" y="22" text-anchor="middle" fill="#E0F2FE" class="badge-text" font-size="12">🚀 CI/CD Automation</text>
+      </g>
+
+      <!-- Pill 2: Code Signing -->
+      <g transform="translate(178, 0)">
+        <rect x="0" y="0" width="168" height="34" rx="17" fill="#0F172A" stroke="#818CF8" stroke-width="1.2" />
+        <text x="84" y="22" text-anchor="middle" fill="#EEF2FF" class="badge-text" font-size="12">🔑 Zero-Friction Signing</text>
+      </g>
+
+      <!-- Pill 3: Beta Delivery -->
+      <g transform="translate(364, 0)">
+        <rect x="0" y="0" width="170" height="34" rx="17" fill="#0F172A" stroke="#34D399" stroke-width="1.2" />
+        <text x="85" y="22" text-anchor="middle" fill="#ECFDF5" class="badge-text" font-size="12">📲 Beta Distribution</text>
+      </g>
+
+      <!-- Pill 4: Open Source -->
+      <g transform="translate(552, 0)">
+        <rect x="0" y="0" width="178" height="34" rx="17" fill="#0F172A" stroke="#F472B6" stroke-width="1.2" />
+        <text x="89" y="22" text-anchor="middle" fill="#FDF2F8" class="badge-text" font-size="12">⭐ 100% Self-Hostable</text>
+      </g>
+    </g>
+
+    <!-- Bottom Pulse Indicator Line -->
+    <line x1="420" y1="316" x2="780" y2="316" stroke="url(#cyanPurple)" stroke-width="2" stroke-linecap="round">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite" />
+    </line>
+  </g>
+</svg>
