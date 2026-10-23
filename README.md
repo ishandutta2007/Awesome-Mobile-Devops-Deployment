@@ -67,7 +67,7 @@ The table below features notable commercial and hosted platforms for Mobile CI/C
 
 Curated list of production-grade open-source tools for mobile automation, build orchestration, device farms, signing, and self-hosted distribution. Sorted in descending order by GitHub stargazers.
 
-| Project | Stars | Focus Area | Description &amp; Capabilities |
+| Project | GitHub_Stars | Focus Area | Description &amp; Capabilities |
 | :--- | :--- | :--- | :--- |
 | [**fastlane/fastlane**](https://github.com/fastlane/fastlane) | [![Fastlane Stars](https://img.shields.io/github/stars/fastlane/fastlane?style=social&color=white)](https://github.com/fastlane/fastlane/stargazers) | Build &amp; Release Automation | The industry standard for iOS and Android deployment. Automates screenshots (`snapshot`), beta distribution (`pilot`), App Store metadata (`deliver`), and encrypted Git-based code signing (`match`). |
 | [**appium/appium**](https://github.com/appium/appium) | [![Appium Stars](https://img.shields.io/github/stars/appium/appium?style=social&color=white)](https://github.com/appium/appium/stargazers) | Cross-Platform Testing | Open-source, cross-platform test automation framework for native, hybrid, and mobile web applications using the W3C WebDriver protocol across iOS, Android, and Windows. |
